@@ -5,7 +5,7 @@
 
 /* appearance */
 static char *fonts[] = {
-    "envypn:style=Regular:size=11",
+    "mono:style=Regular:size=11",
     "Siji:style=Regular:size=12"
 };
 
