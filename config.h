@@ -82,7 +82,7 @@ ResourcePref resources[] = {
         { "color5",       STRING,  &colors[6][2] }, // magenta
         { "color6",       STRING,  &colors[7][2] }, // cyan
         { "color8",       STRING,  &colors[8][2] }, // gray
-		
+
 };
 
 /* tagging */
@@ -140,7 +140,7 @@ static const char *lightup[]	= { "xbacklight", "-inc", "5", NULL};
 static Key keys[] = {
     /* modifier             key        		function        argument */
     { MODKEY,               XK_0,      		view,           {.ui = ~0 } },
-    { MODKEY,		    XK_a,		spawn,		SHCMD("scrot -s /home/$USER/screenshots/%Y-%m-%d_%H-%M-%S_scrot.png && notify-send 'Screenshot saved'") },
+    { MODKEY,		    XK_a,		spawn,		SHCMD("scrot ~/screenshots/%Y-%m-%d_%H-%M-%S_scrot.png -s && notify-send 'Screenshot saved'") },
     { MODKEY,               XK_b,      		togglebar,      {0} },
     { MODKEY,               XK_d,      		incnmaster,     {.i = -1 } },
     { MODKEY,               XK_e,      		spawn,          {.v = filemanager } },
@@ -153,7 +153,7 @@ static Key keys[] = {
     { MODKEY,               XK_m,      		setlayout,      {.v = &layouts[2]} },
     { MODKEY,               XK_p,      		spawn,          {.v = dmenucmd } },
     { MODKEY,               XK_q,      		killclient,     {0} },
-    { MODKEY,               XK_s,      		spawn,          SHCMD("scrot '/home/$USER/screenshots/%Y-%m-%d_%H-%M-%S_scrot.png' && notify-send 'Screenshot saved'") },
+    { MODKEY,               XK_s,      		spawn,          SHCMD("scrot ~/screenshots/%Y-%m-%d_%H-%M-%S_scrot.png && notify-send 'Screenshot saved'") },
     { MODKEY,               XK_t,      		setlayout,      {.v = &layouts[0]} },
     { MODKEY,               XK_x,      		spawn,          SHCMD("physlock -p \"`neofetch -L`\"") },
     { MODKEY,               XK_comma,  		focusmon,       {.i = -1 } },
