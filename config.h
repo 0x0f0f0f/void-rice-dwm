@@ -52,7 +52,7 @@ typedef struct {
  * Xresources preferences to load at startup
  */
 ResourcePref resources[] = {
-		{ "font",         STRING,  &fonts[0] },
+	{ "font",         STRING,  &fonts[0] },
         { "background",   STRING,  &colors[0][0] }, // Borders
         { "color8",       STRING,  &colors[1][0] },
         { "background",   STRING,  &colors[2][0] },
@@ -136,12 +136,11 @@ static const char *mute[]    	= { "amixer", "sset", "Master", "toggle", NULL};
 static const char *filemanager[]= { "pcmanfm", NULL};
 static const char *lightdown[]	= { "xbacklight", "-dec", "5", NULL};
 static const char *lightup[]	= { "xbacklight", "-inc", "5", NULL};
-static const char *shotcmd[]	= { "scrot", "%Y-%m-%d_$wx$h_scrot.png", "-s", "-e", "mv $f ~/Pictures/screenshots/", NULL};
 
 static Key keys[] = {
     /* modifier             key        		function        argument */
     { MODKEY,               XK_0,      		view,           {.ui = ~0 } },
-    { MODKEY,		        XK_a,		    spawn,		    SHCMD("scrot '%Y-%m-%d_%H-%M-%S_$wx$h_scrot.png' -s -e 'mv $f ~/Pictures/screenshots/' && notify-send \"`date`\" 'Screenshot saved'") },
+    { MODKEY,		    XK_a,		spawn,		SHCMD("scrot -s /home/$USER/screenshots/%Y-%m-%d_%H-%M-%S_scrot.png && notify-send 'Screenshot saved'") },
     { MODKEY,               XK_b,      		togglebar,      {0} },
     { MODKEY,               XK_d,      		incnmaster,     {.i = -1 } },
     { MODKEY,               XK_e,      		spawn,          {.v = filemanager } },
@@ -154,7 +153,7 @@ static Key keys[] = {
     { MODKEY,               XK_m,      		setlayout,      {.v = &layouts[2]} },
     { MODKEY,               XK_p,      		spawn,          {.v = dmenucmd } },
     { MODKEY,               XK_q,      		killclient,     {0} },
-    { MODKEY,               XK_s,      		spawn,          SHCMD("scrot '%Y-%m-%d_%H-%M-%S_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/' && notify-send \"`date`\" \"Screenshot saved\"") },
+    { MODKEY,               XK_s,      		spawn,          SHCMD("scrot '/home/$USER/screenshots/%Y-%m-%d_%H-%M-%S_scrot.png' && notify-send 'Screenshot saved'") },
     { MODKEY,               XK_t,      		setlayout,      {.v = &layouts[0]} },
     { MODKEY,               XK_x,      		spawn,          SHCMD("physlock -p \"`neofetch -L`\"") },
     { MODKEY,               XK_comma,  		focusmon,       {.i = -1 } },
@@ -173,7 +172,7 @@ static Key keys[] = {
     { MODKEY,		    0x1008ff03,		spawn, 		{.v = lightdown }},
     { MODKEY,		    0x1008ff11,		spawn,		{.v = voldown }},
     { MODKEY,		    0x1008ff13,		spawn,		{.v = volup }},
-{ MODKEY,               XK_F5,          xresreload,    {NULL} },
+    /* { MODKEY,               XK_F5,          	xresreload,    	{NULL} }, xresources hotkey reload disabled, WIP */
 
     { MODKEY|ShiftMask,     XK_0,      		tag,            {.ui = ~0 } },
     { MODKEY|ShiftMask,     XK_m,      		spawn,          {.v = mute } },
