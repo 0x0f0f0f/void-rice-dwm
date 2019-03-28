@@ -128,11 +128,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-<<<<<<< HEAD
 static const char *dmenucmd[]   = { "dmenu_run", "-i", "-l", "20", "-p", "Search >", "-fn", "mono:size=11" , "-nb", "#111111", "-nf", "#ffffff", "-sb", "#444444", "-sf", "#ffffff", "-w", "0", "-h", "20", NULL };
-=======
-static const char *dmenucmd[]   = { "dmenu_run", "-i", "-l", "20", "-p", "Search >", "-fn", "envypn:style=Regular:size=11" , "-nb", "#111111", "-nf", "#ffffff", "-sb", "#444444", "-sf", "#ffffff", "-w", "0", "-h", "20", NULL };
->>>>>>> cb8b4bb87f70b086f564545d35c07f1d8c660adb
 static const char *termcmd[]    = { "st", NULL };
 static const char *voldown[]    = { "amixer", "sset", "Master", "3%-", NULL};
 static const char *volup[]      = { "amixer", "sset", "Master", "3%+", NULL};
