@@ -128,7 +128,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[]   = { "dmenu_run", "-i", "-l", "20", "-p", "Search >", "-fn", "mono:size=11" , "-nb", "#111111", "-nf", "#ffffff", "-sb", "#444444", "-sf", "#ffffff", "-w", "0", "-h", "20", NULL };
+static const char *dmenucmd[]   = { "dmenu_run", "-i", "-l", "20", "-p", "Search >", "-nb", "#111111", "-nf", "#ffffff", "-sb", "#444444", "-sf", "#ffffff", "-w", "0", "-h", "20", NULL };
+static const char *jgmenucmd[]   = { "jgmenu_run", NULL };
 static const char *termcmd[]    = { "st", NULL };
 static const char *voldown[]    = { "amixer", "sset", "Master", "3%-", NULL};
 static const char *volup[]      = { "amixer", "sset", "Master", "3%+", NULL};
@@ -176,6 +177,7 @@ static Key keys[] = {
 
     { MODKEY|ShiftMask,     XK_0,      		tag,            {.ui = ~0 } },
     { MODKEY|ShiftMask,     XK_m,      		spawn,          {.v = mute } },
+    { MODKEY|ShiftMask,     XK_p,      		spawn,          {.v = jgmenucmd } },
     { MODKEY|ShiftMask,     XK_q,      		quit,           {0} },
     { MODKEY|ShiftMask,     XK_comma,		tagmon,         {.i = -1 } },
     { MODKEY|ShiftMask,     XK_period, 		tagmon,         {.i = +1 } },
