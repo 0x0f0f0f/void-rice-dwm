@@ -156,7 +156,7 @@ static Key keys[] = {
     { MODKEY,               XK_q,      		killclient,     {0} },
     { MODKEY,               XK_s,      		spawn,          SHCMD("scrot ~/screenshots/%Y-%m-%d_%H-%M-%S_scrot.png && notify-send 'Screenshot saved'") },
     { MODKEY,               XK_t,      		setlayout,      {.v = &layouts[0]} },
-    { MODKEY,               XK_x,      		spawn,          SHCMD("physlock -p \"`neofetch -L`\"") },
+    { MODKEY,               XK_x,      		spawn,          SHCMD("physlock -p \"`neofetch -L`Screen locked at `date`\"") },
     { MODKEY,               XK_comma,  		focusmon,       {.i = -1 } },
     { MODKEY,               XK_equal,  		spawn,          {.v = volup } },
     { MODKEY,               XK_minus,  		spawn,          {.v = voldown } },
