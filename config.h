@@ -5,7 +5,8 @@
 
 /* appearance */
 const char *fonts[] = {
-    "mono:style=Regular:size=11",
+    "Tamsyn:style=Regular:size=11",
+    "monospace:style=Regular:size=11",
     "Siji:style=Regular:size=12"
 };
 
