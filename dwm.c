@@ -818,11 +818,14 @@ drawbar(Monitor *m)
             urg |= c->tags;
     }
     x = 0;
+
     for (i = 0; i < LENGTH(tags); i++) {
         w = TEXTW(tags[i]) + tagspacing;
         drw_setscheme(drw, &scheme[(m->tagset[m->seltags] & 1 << i) ? 1 : (urg & 1 << i ? 2 : (occ & 1 << i ? 3:0))]);
-        drw_text(drw, x, 0, w, bh, tags[i], 0);
-        x += w;
+        if(m->tagset[m->seltags] & 1 << i) {
+            drw_text(drw, x, 0, w, bh, tags[i], 0);
+            x += w;
+        }
     }
     w = blw = TEXTW(m->ltsymbol);
     drw_setscheme(drw, &scheme[0]);
